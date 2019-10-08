@@ -40,6 +40,7 @@ import java.util.logging.Logger;
 
 /**
  * Main class application view
+ * 主类应用程序视图
  */
 @SuppressWarnings("serial")
 public class PipeApplicationView extends JFrame implements ActionListener, Observer {
@@ -82,13 +83,21 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
 
     private Map<PetriNetTab, AnimationHistoryView> histories = new HashMap<>();
 
-
+    /**
+     * 主程序视图类 构造方法
+     *
+     * @param zoomManager           ZoomUI 缩放管理
+     * @param applicationController 程序控制器
+     * @param applicationModel      程序基本信息对象
+     */
     public PipeApplicationView(ZoomManager zoomManager, final PipeApplicationController applicationController,
                                PipeApplicationModel applicationModel) {
         this.zoomManager = zoomManager;
-
         this.applicationModel = applicationModel;
         this.applicationController = applicationController;
+        //PropertyChangeListener 是一个接口    该处使用了匿名内部类
+        //PropertyChangeListener 每当bean更改“ bound”属性时，都会触发“ PropertyChange”事件。
+        //您可以向源bean注册PropertyChangeListener，以便在任何绑定的属性更新时得到通知。
         applicationController.registerToManager(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
@@ -121,6 +130,7 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
                 }
             }
         });
+        //设置应用程序展示名称,从applicationModel中获取name属性
         setTitle(null);
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -171,7 +181,9 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
 
     @Override
     public final void setTitle(String title) {
+        //获取程序名称
         String name = applicationModel.getName();
+        //三元运算符
         super.setTitle((title == null) ? name : name + ": " + title);
     }
 
@@ -343,7 +355,7 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
     /**
      * Sets pipes menu
      *
-     * @param menu for PIPE 
+     * @param menu for PIPE
      */
     public void setMenu(JMenuBar menu) {
         setJMenuBar(menu);
@@ -365,7 +377,8 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
 
     /**
      * Sets the default behaviour for exit for both Windows/Linux/Mac OS X
-     * @param adapter for exit action 
+     *
+     * @param adapter for exit action
      */
     public void setExitAction(WindowListener adapter) {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -487,8 +500,8 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
     }
 
     private URL getImageURL(String name) {
-		PipeResourceLocator locator = new PipeResourceLocator(); 
-		return locator.getImage(name);
+        PipeResourceLocator locator = new PipeResourceLocator();
+        return locator.getImage(name);
     }
 
     public void register(JComboBox<String> tokenClassComboBox) {

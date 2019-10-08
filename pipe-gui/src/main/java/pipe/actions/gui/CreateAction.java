@@ -9,6 +9,7 @@ import java.awt.event.MouseEvent;
 /**
  * This action is responsible for the actions that lead to creating components on the
  * Petri net canvas
+ * 此操作负责导致在Petri网络画布上创建组件的操作
  */
 @SuppressWarnings("serial")
 public abstract class CreateAction extends GuiAction {

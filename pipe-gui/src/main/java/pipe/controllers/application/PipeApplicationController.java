@@ -25,6 +25,11 @@ import java.util.*;
 /**
  * Pipes main application controller.
  * It houses the Petri net controllers of open tabs and is responsible for the creation of Petri nets
+ *
+ * PIPES主应用程序控制器。
+ * 它包含打开选项卡的Petri网控制器，并负责创建Petri网
+ *
+ * @author g
  */
 public class PipeApplicationController {
 
@@ -35,10 +40,13 @@ public class PipeApplicationController {
 
     /**
      * Main PIPE application model
+     * 应用程序基本信息对象
+     * final Java关键字  修饰类时标识这个类不能被集成,被final修饰的方法不能被重写,修饰变量时必须要赋初始值,且只能初始化一次
      */
     private final PipeApplicationModel applicationModel;
 
     /**
+     *  管理Petri Net模型的创建/删除
      * Manages creation/deletion of Petri net models
      */
     private final PetriNetManager manager = new PetriNetManagerImpl();
@@ -57,7 +65,8 @@ public class PipeApplicationController {
     }
 
     /**
-     *
+     *  注册监听器
+     * 在petrinet管理器中收听更改事件
      * @param listener to listen for change events in the petri net manager
      */
     public void registerToManager(PropertyChangeListener listener) {

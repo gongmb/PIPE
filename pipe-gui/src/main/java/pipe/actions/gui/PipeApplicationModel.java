@@ -7,69 +7,85 @@ import java.io.Serializable;
 /**
  * This class contains information about the underlying state of the application
  * For example whether it is in animation mode and what action is currently selected
+ *
+ * 此类包含有关应用程序基础状态的信息，例如，它是否处于动画模式以及当前选择了什么操作
  */
 @SuppressWarnings("serial")
 public class PipeApplicationModel implements Serializable {
+    //实现serializabel接口的作用是就是可以把对象存到字节流，然后可以恢复，所以你想如果你的对象没实现序列化怎么才能进行
+    // 持久化和网络传输呢，要持久化和网络传输就得转为字节流，所以在分布式应用中及设计数据持久化的场景中，你就得实现序列化。
     /**
      * Message fired when animation mode is toggled
+     * 切换动画模式时触发消息
      */
     public static final String TOGGLE_ANIMATION_MODE = "Toggle animation";
 
     /**
      * Message fired when the action type is changed on the tool bar
+     * 在工具栏上更改操作类型时触发消息
      */
     public static final String TYPE_ACTION_CHANGE_MESSAGE = "Type action change";
 
     /**
      * Property change support for publish-subscribe architecture
+     * 对发布-订阅体系结构的属性更改支持
      */
     protected final PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
 
     /**
      * Zoom percentages
+     * 缩放百分比
      */
     private final String[] zoomExamples =
             new String[]{"40%", "60%", "80%", "100%", "120%", "140%", "160%", "180%", "200%", "300%"};
 
     /**
      * Application name
+     * 应用名称
      */
     private final String name;
 
     /**
      * True if edition to the Petri net is allowed
+     * 如果允许使用Petrinet版本，则为true
      */
     private boolean editionAllowed = true;
 
     /**
-     * Legacy mode selected
+     * 传统模式已选择
      */
     private int mode;
 
     /**
      * Legacy old mode
+     * 旧版旧模式
      */
     private int oldMode;
 
     /**
      * Determines if PIPE is viewing in animation mode or not
+     * 确定PIPE是否以动画模式查看
      */
     private boolean inAnimationMode;
 
     /**
      * Type that is currently selected on the petrinet
+     * 当前在petrinet上选择的类型
      */
     private CreateAction selectedType;
 
     /**
+     * PipeApplicationModel 类的有参构造
      * Constructor
      * @param version e.g. 5
      */
     public PipeApplicationModel(String version) {
-        name = "PIPE: Platform Independent Petri Net Editor " + version;
+        //设置应用程序名称
+        name = "PIPE: Platform Independent Petri Net Editor " + version+",auth:巩孟博";
     }
 
     /**
+     * 添加一个监听器 监听当前对象属性
      * Adds a listener for changes in this model.
      * @param listener to add
      */

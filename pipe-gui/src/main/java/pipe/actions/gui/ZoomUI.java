@@ -14,6 +14,9 @@ import java.beans.PropertyChangeSupport;
 /**
  * Zoom UI which intercepts mouse presses on a zoomed panel and transforms them to their
  * correct location
+ * 缩放用户界面，可拦截缩放面板上的鼠标按下并将其转换为正确的位置
+ *
+ * 实现ZoomManager接口
  */
 @SuppressWarnings("serial")
 public class ZoomUI extends LayerUI<JComponent> implements ZoomManager {
@@ -30,22 +33,27 @@ public class ZoomUI extends LayerUI<JComponent> implements ZoomManager {
 
     /**
      * Amount to zoom in and out by
+     * 放大和缩小的量
      */
     private final double zoomAmount;
 
     /**
      * Minimum scale allowed to zoom to
+     * 最小缩放比例
      */
     private final double zoomMin;
 
     /**
+     * 主程序控制器
      * ApplicationView that this zooming belongs for
      * is used to get petri net tab
+     * 缩放所属的ApplicationView用于获取petrinet选项卡
      */
     private final PipeApplicationController controller;
 
     /**
      * Maximum scale allowed to zoom to
+     * 允许缩放到的最大比例
      */
     private final double zoomMax;
 
@@ -56,6 +64,7 @@ public class ZoomUI extends LayerUI<JComponent> implements ZoomManager {
 
     /**
      * Zoom transformation 1 = unzoomed
+     * 缩放变换1 =未缩放
      */
     private double zoom = 1;
 

@@ -1,7 +1,20 @@
 package pipe.views;
 
-import java.awt.Component;
-import java.awt.Dimension;
+import pipe.actions.ZoomAction;
+import pipe.actions.gui.*;
+import pipe.actions.manager.*;
+import pipe.controllers.PetriNetController;
+import pipe.controllers.SelectionManager;
+import pipe.controllers.application.PipeApplicationController;
+import pipe.gui.LayoutAction;
+import pipe.gui.PetriNetTab;
+import pipe.gui.PipeResourceLocator;
+import pipe.gui.ToggleButton;
+
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
@@ -17,56 +30,12 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import javax.swing.Action;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.InputMap;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import pipe.actions.ZoomAction;
-import pipe.actions.gui.ChooseTokenClassAction;
-import pipe.actions.gui.ExampleFileAction;
-import pipe.actions.gui.ExitAction;
-import pipe.actions.gui.ExportPNGAction;
-import pipe.actions.gui.ExportPSAction;
-import pipe.actions.gui.ExportTNAction;
-import pipe.actions.gui.GridAction;
-import pipe.actions.gui.GuiAction;
-import pipe.actions.gui.ImportAction;
-import pipe.actions.gui.PipeApplicationModel;
-import pipe.actions.gui.PrintAction;
-import pipe.actions.gui.SelectAction;
-import pipe.actions.gui.SetZoomAction;
-import pipe.actions.gui.UnfoldAction;
-import pipe.actions.gui.ZoomInAction;
-import pipe.actions.gui.ZoomOutAction;
-import pipe.actions.gui.ZoomUI;
-import pipe.actions.manager.AnimateActionManager;
-import pipe.actions.manager.ComponentCreatorManager;
-import pipe.actions.manager.ComponentEditorManager;
-import pipe.actions.manager.PetriNetEditorManager;
-import pipe.actions.manager.SimpleUndoListener;
-import pipe.actions.manager.TokenActionManager;
-import pipe.controllers.PetriNetController;
-import pipe.controllers.SelectionManager;
-import pipe.controllers.application.PipeApplicationController;
-import pipe.gui.LayoutAction;
-import pipe.gui.PetriNetTab;
-import pipe.gui.ToggleButton;
-import pipe.gui.PipeResourceLocator;
-
 /**
  * Builder class to set up the properties of the PIPE main application window
+ * 用于设置PIPE主应用程序窗口属性的Builder类
  * <p>
  * This class does a bit too much, but it took the logic out of the {@link pipe.views.PipeApplicationView} class itself
+ * 这个类做的太多了，但它使逻辑脱离了 PipeApplicationView 类本身
  * </p>
  */
 public final class PipeApplicationBuilder {
