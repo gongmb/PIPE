@@ -28,6 +28,8 @@ import java.util.logging.Logger;
  * The ModuleManager class contains methods to create swing components to allow
  * the user to load modules and execute methods within them. To use, instantiate
  * a ModuleManager object and use the methods to return the required components.
+ * ModuleManager类包含创建摆动组件的方法，以允许用户加载模块并在其中执行方法。
+ * 要使用，请实例化一个ModuleManager对象，并使用这些方法返回所需的组件。
  *
  * @author Camilla Clifford
  * @author David Patterson -- minor changes 24 Nov 2006

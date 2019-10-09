@@ -23,9 +23,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.text.BadLocationException;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowListener;
@@ -34,6 +32,7 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -133,31 +132,45 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
         //设置应用程序展示名称,从applicationModel中获取name属性
         setTitle(null);
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //返回实现本机系统外观的<code> LookAndFeel </ code>类的名称，否则，返回默认跨平台<code> LookAndFeel </ code>的名称。
+            //类。 可以通过设置<code> swing.systemlaf </ code>系统属性来覆盖此值。
+            String systemLookAndFeelClassName = UIManager.getSystemLookAndFeelClassName();
+            //加载给定类指定的{@code LookAndFeel}名称，使用当前线程的上下文类加载器，以及将其传递给{@code setLookAndFeel（LookAndFeel）}。
+            UIManager.setLookAndFeel(systemLookAndFeelClassName);
         } catch (IllegalAccessException | ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException e) {
             LOGGER.log(Level.SEVERE, e.getMessage());
         }
-
+        //获取并设置icon图标
         this.setIconImage(new ImageIcon(getImageURL("icon")).getImage());
-
+        //Java AWT的Toolkit是对系统低层实现图形控件的最基本功能的一些接口。
+        //Window.getToolkit获得当前控件的底层控件的基本功能
+        //Toolkit.getDefaultToolkit获得默认的底层控件的基本功能
+        //WToolkit 对象
+        Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
+        //获取系统窗口大小
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        //设置软件窗口大小
         this.setSize(screenSize.width * 80 / 100, screenSize.height * 80 / 100);
+        //设置其他相关信息  左边距 右边距 上边距 下边距
         this.setLocationRelativeTo(null);
 
-        // Status bar...
+        // Status bar... 状态栏
         statusBar = new StatusBar();
+        //BorderLayout.PAGE_END 该组件位于布局内容的最后一行之后。 对于Western，从左到右和从上到下的方向，这等效于SOUTH。
+        //添加状态栏
         getContentPane().add(statusBar, BorderLayout.PAGE_END);
-
+        //设置前景颜色
         this.setForeground(java.awt.Color.BLACK);
+        //设置背景颜色
         this.setBackground(java.awt.Color.WHITE);
-
+        //模型管理器
         ModuleManager moduleManager = new ModuleManager(this, applicationController);
+        //获取模型树
         JTree moduleTree = moduleManager.getModuleTree();
         moduleAndAnimationHistoryFrame = new JSplitPane(JSplitPane.VERTICAL_SPLIT, moduleTree, null);
         moduleAndAnimationHistoryFrame.setContinuousLayout(true);
         moduleAndAnimationHistoryFrame.setDividerSize(0);
-        JSplitPane pane =
-                new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, moduleAndAnimationHistoryFrame, frameForPetriNetTabs);
+        JSplitPane pane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, moduleAndAnimationHistoryFrame, frameForPetriNetTabs);
         pane.setContinuousLayout(true);
         pane.setOneTouchExpandable(true);
         // avoid multiple borders
@@ -499,6 +512,12 @@ public class PipeApplicationView extends JFrame implements ActionListener, Obser
         addNewTab(petriNet.getNameValue(), petriNetTab);
     }
 
+    /**
+     * 根据图片名称 获取图片本地地址
+     *
+     * @param name
+     * @return
+     */
     private URL getImageURL(String name) {
         PipeResourceLocator locator = new PipeResourceLocator();
         return locator.getImage(name);
