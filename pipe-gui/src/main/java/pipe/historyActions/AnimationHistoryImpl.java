@@ -9,17 +9,21 @@ import java.util.Observable;
 
 /**
  * AnimationHistory for an individual PetriNet
+ * 单个Petri网的动画记录
  */
 public final class AnimationHistoryImpl extends Observable implements AnimationHistory {
     /**
      * List to hold transitions fired in their order
      * Used for going back/forward in time
+     * 保存按顺序触发的变迁的列表，用于及时返回/前进
      */
     private List<Transition> firingSequence = new ArrayList<>();
 
     /**
      * Current index of the firingSequence;
+     * 触发序列的当前索引
      * Initialised to -1 so when the first item is added it points to zero
+     * 初始化为-1，因此当第一个项被添加时，它指向零
      */
     private int currentPosition = -1;
 
@@ -28,6 +32,7 @@ public final class AnimationHistoryImpl extends Observable implements AnimationH
      * Cannot step forward if head of the list
      *
      * @return true if stepping forward within the animation is allowed, that is if there are transition firings to redo
+     * 如果列表头返回true，则无法前进。如果允许在动画中前进，即如果有要重做的转换触发
      */
     @Override
     public boolean isStepForwardAllowed() {
@@ -37,7 +42,7 @@ public final class AnimationHistoryImpl extends Observable implements AnimationH
 
     /**
      * Can step back if currentPosition points to any transitions
-     *
+     * 如果当前位置指向任何变迁，则可以后退
      * @return true if stepping backward within the animation is allowed, that is if there are transition firings to undo
      */
     @Override
@@ -47,6 +52,7 @@ public final class AnimationHistoryImpl extends Observable implements AnimationH
 
     /**
      * Steps forward firing the transition associated with the latest action
+     * 前进一步启动与最新操作关联的变迁
      */
     @Override
     public void stepForward() {
@@ -59,6 +65,7 @@ public final class AnimationHistoryImpl extends Observable implements AnimationH
 
     /**
      * Steps backwards updating the current transition highlighted in the list
+     * 逐步向后更新列表中突出显示的当前变迁
      */
     @Override
     public void stepBackwards() {
@@ -70,6 +77,7 @@ public final class AnimationHistoryImpl extends Observable implements AnimationH
 
     /**
      * Remove all steps past the current step
+     * 删除当前步骤之后的所有步骤
      */
     @Override
     public void clearStepsForward() {

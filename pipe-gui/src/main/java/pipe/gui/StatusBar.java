@@ -36,7 +36,7 @@ public class StatusBar extends JPanel {
     public StatusBar() {
         super();
         label = new JLabel(TEXT_FOR_DRAWING);
-        this.setLayout(new BorderLayout(0, 0));
+        this.setLayout(new BorderLayout(0, 0));// BorderLayout 用指定的组件之间的间隙构造一个边框布局。
         this.add(label);
     }
 

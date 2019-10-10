@@ -1,4 +1,3 @@
-skjdhf
 # PIPE 5 [![Build Status](https://travis-ci.org/sarahtattersall/PIPE.png?branch=master)](https://travis-ci.org/sarahtattersall/PIPE)
 
 A tool for creating and analysing Petri nets, migrated from [Sourceforge](http://pipe2.sourceforge.net/about.html). A user-guide can be found [here](http://sarahtattersall.github.io/PIPE/) for how to use PIPE 5's features.

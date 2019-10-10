@@ -30,94 +30,110 @@ public class PetriNetController implements Serializable {
 
     /**
      * Responsible for zooming of the current Petri net
+     * 负责当前petri网的缩放
      */
     private final ZoomController zoomController;
 
     /**
      * Responsible for handling undo/redo
+     * 负责处理撤消/重做
      */
     private final UndoManager undoManager = new UndoManager();
 
     /**
      * Petri net being displayed
+     * 正在显示的petri网
      */
     private final PetriNet petriNet;
 
     /**
      * Listener for tool bar actions that create undoable actions
+     * 创建可撤消操作的工具栏操作的侦听器
      */
     private final UndoableEditListener undoListener;
 
     /**
      * Tab that the Petri net is shown on
+     * petri网显示的tab
      */
     private final PetriNetTab petriNetTab;
 
     /**
      * Selected components in the Petri net
+     * petri网中的选定组件
      */
     private final Set<PetriNetComponent> selectedComponents = new HashSet<>();
 
     /**
      * Responsible for copy and pasting of selected components
+     * 负责所选组件的复制和粘贴
      */
     private final CopyPasteManager copyPasteManager;
 
     /**
      * Responsible for naming places
+     * 负责命名库所
      */
     private final UniqueNamer placeNamer;
 
     /**
      * Responsible for creating unique transition names
+     * 负责创建唯一的变迁名称
      */
     private final UniqueNamer transitionNamer;
 
     /**
      * Token id that is currently selected in the drop down
+     * 在当前下拉列表中选择令牌ID
      */
     private String selectedToken;
 
     /**
      * Animator class for animating tokens in the petri net
+     * 用于在petri网中设置令牌动画的animator类
      */
     private GUIAnimator animator;
 
 
     /**
      * Drag manager for dragging selected objects
+     * 用于拖动选定对象的拖动管理器
      */
-    private DragManager dragManager = new DragManager(this);
+    private DragManager dragManager = new DragManager(this);   //拖动管理器
 
     /**
      * Name of file the Petri net is saved to. Empty string if it has not yet been saved/loaded
      * from file
+     * 保存petri网的文件名。空字符串（如果尚未从文件中保存/加载）
      */
     private String fileName = "";
 
     /**
      * Copy of the last saved version of the Petri net
+     * 上次保存的petri网版本的副本
      */
     private PetriNet lastSavedNet;
 
     /**
      * Set to true if the Petri net is in animation mode
+     * 如果petri网处于动画模式，则设置为true
      */
-    private boolean animateMode = false;
+    private boolean animateMode = false;//？？？？为什么是false
 
     /**
      * Selection manager for selecting petri net components
+     * 选择petri网组件的选择管理器
      */
     private SelectionManager selectionManager;
 
     /**
      * Constructor
-     * @param model underlying Petri net
-     * @param undoListener undo listener for tool bar buttons undo actions
-     * @param animator Petri net animator
-     * @param copyPasteManager copy paste manager for the Petri net
-     * @param zoomController zoom controller for the Petri net
-     * @param petriNetTab tab this Petri net is displayed on
+     * @param model underlying Petri net         底层petri网
+     * @param undoListener undo listener for tool bar buttons undo actions    撤消工具栏按钮的侦听器撤消操作
+     * @param animator Petri net animator   petri网动画师
+     * @param copyPasteManager copy paste manager for the Petri net   petri网的复制粘贴管理器
+     * @param zoomController zoom controller for the Petri net     petri网的缩放控制器
+     * @param petriNetTab tab this Petri net is displayed on   此petri网显示的tab
      */
     public PetriNetController(PetriNet model, UndoableEditListener undoListener, GUIAnimator animator,
                               CopyPasteManager copyPasteManager, ZoomController zoomController,

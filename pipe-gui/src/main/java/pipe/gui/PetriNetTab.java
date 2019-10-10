@@ -28,26 +28,31 @@ import java.util.logging.Logger;
 /**
  * The main canvas that the {@link pipe.views.PetriNetViewComponent}s appear on
  * It is a tab in the main applicaiton
+ * 它是主应用程序中的一个选项卡
  */
 public class PetriNetTab extends JLayeredPane implements Observer, Printable {
 
     /**
      * Class logger
+     * 类记录器
      */
     private static final Logger LOGGER = Logger.getLogger(PetriNetTab.class.getName());
 
     /**
      * Map of components in the tab with id -&gt; component
+     * 标识为“组件”的选项卡中组件的映射
      */
     private final Map<String, PetriNetViewComponent> petriNetComponents = new HashMap<>();
 
     /**
      * Grid displayed on petri net tab
+     * petri网选项卡上显示的网格
      */
     private final Grid grid = new Grid();
 
     /**
      * Legacy file for the saving of the underlying Petri net
+     * 用于保存底层petri网的遗留文件
      */
     @Deprecated
     public File appFile;

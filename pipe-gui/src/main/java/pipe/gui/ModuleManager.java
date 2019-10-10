@@ -130,7 +130,7 @@ public class ModuleManager {
 
         treeModel = new DefaultTreeModel(root);
 
-        moduleTree = new JTree(treeModel);
+        moduleTrehe = new JTree(treeModel);
         moduleTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 
         moduleTree.addMouseListener(new TreeHandler());

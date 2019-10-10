@@ -30,7 +30,7 @@ import java.util.List;
  * Class to handle copy and paste functionality
  */
 @SuppressWarnings("serial")
-public class CopyPasteManager extends javax.swing.JComponent
+public class  CopyPasteManager extends javax.swing.JComponent
         implements java.awt.event.MouseListener, java.awt.event.MouseMotionListener, java.awt.event.KeyListener {
 
     /**

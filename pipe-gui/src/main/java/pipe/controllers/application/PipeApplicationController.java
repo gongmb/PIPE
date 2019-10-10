@@ -35,6 +35,7 @@ public class PipeApplicationController {
 
     /**
      * Controllers for each tab
+     * 每个选项卡的控制器
      */
     private final Map<PetriNetTab, PetriNetController> netControllers = new HashMap<>();
 
@@ -53,6 +54,7 @@ public class PipeApplicationController {
 
     /**
      * The current tab displayed in the view
+     * 视图中显示的当前选项卡
      */
     private PetriNetTab activeTab;
 
@@ -66,7 +68,7 @@ public class PipeApplicationController {
 
     /**
      *  注册监听器
-     * 在petrinet管理器中收听更改事件
+     * 在petri网管理器中收听更改事件
      * @param listener to listen for change events in the petri net manager
      */
     public void registerToManager(PropertyChangeListener listener) {
@@ -75,6 +77,7 @@ public class PipeApplicationController {
 
     /**
      * Creates an empty Petri net with a default token
+     * 创建一个具有默认令牌的Petri网
      */
     public void createEmptyPetriNet() {
         manager.createNewPetriNet();
