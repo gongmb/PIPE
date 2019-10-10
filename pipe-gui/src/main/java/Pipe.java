@@ -12,6 +12,7 @@ public final class Pipe {
 
     private Pipe(String version) {
         //应用程序基本信息对象 applicationModel  应用名称等
+        //jhjhgjgjg
         PipeApplicationModel applicationModel = new PipeApplicationModel(version);
         //应用程序控制器
         PipeApplicationController applicationController = new PipeApplicationController(applicationModel);
