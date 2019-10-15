@@ -65,6 +65,7 @@ public class ModuleManager {
     private final Set<Class<?>> installedModules;
 
     /**
+     * 主要PIPE应用控制
      * Main PIPE application controller
      */
     private final PipeApplicationController controller;
@@ -130,7 +131,7 @@ public class ModuleManager {
 
         treeModel = new DefaultTreeModel(root);
 
-        moduleTrehe = new JTree(treeModel);
+        moduleTree = new JTree(treeModel);
         moduleTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 
         moduleTree.addMouseListener(new TreeHandler());

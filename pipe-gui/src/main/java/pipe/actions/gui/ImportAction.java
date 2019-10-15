@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 public class ImportAction extends GuiAction {
     public ImportAction() {
-        super("Import", "Import from eDSPN", KeyEvent.VK_I, InputEvent.META_DOWN_MASK);
+        super("输入", "Import from eDSPN", KeyEvent.VK_I, InputEvent.META_DOWN_MASK);
     }
 
     @Override

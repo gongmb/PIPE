@@ -41,7 +41,7 @@ import java.util.zip.ZipInputStream;
 public final class PipeApplicationBuilder {
 
     /**
-     * Class logger
+     * Class logger找到或创建一个命名系统记录器
      */
     private static final Logger LOGGER = Logger.getLogger(PipeApplicationBuilder.class.getName());
 
@@ -181,7 +181,7 @@ public final class PipeApplicationBuilder {
             addButton(toolBar, action);
         }
 
-        toolBar.addSeparator();
+        toolBar.addSeparator();//附加一个分离器默认大小的刀杆的杆端。
         addButton(toolBar, pipeComponents.printAction);
         toolBar.addSeparator();
         for (GuiAction action : pipeComponents.componentEditorManager.getActions()) {
@@ -225,7 +225,7 @@ public final class PipeApplicationBuilder {
                                PipeApplicationController controller, String[] zoomActions) {
         JMenuBar menuBar = new JMenuBar();
 
-        JMenu fileMenu = new JMenu("File");
+        JMenu fileMenu = new JMenu("文件");
         fileMenu.setMnemonic('F');
 
         for (GuiAction action : pipeComponents.editorManager.getActions()) {
