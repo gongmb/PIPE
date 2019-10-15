@@ -18,6 +18,7 @@ public class TransitionViewBuilder {
     private final Transition transition;
 
     /**
+     *
      * Petri net controller for the Petri net the transition is contained in
      */
     private final PetriNetController controller;

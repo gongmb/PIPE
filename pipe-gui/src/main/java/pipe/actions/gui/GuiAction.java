@@ -16,9 +16,11 @@ import pipe.gui.PipeResourceLocator;
 
 
 /**
+ * 所有PIPE GUI动作都应该子类化的抽象动作。 这些
+   操作应该是PIPE工具栏上的按钮
  * Abstract action which all PIPE GUI actions should subclass. These
  * actions should be buttons on the PIPE tool bar
- *
+ *此类负责加载按钮的图像
  * This class is responsible for loading the images of the button
  */
 @SuppressWarnings("serial")

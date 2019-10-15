@@ -164,6 +164,7 @@ public class PetriNetController implements Serializable {
      * @return A unique name for a place in the current petri net
      */
     public String getUniquePlaceName() {
+
         return placeNamer.getName();
     }
 

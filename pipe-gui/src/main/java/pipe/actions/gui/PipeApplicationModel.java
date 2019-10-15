@@ -81,7 +81,7 @@ public class PipeApplicationModel implements Serializable {
      */
     public PipeApplicationModel(String version) {
         //设置应用程序名称
-        name = "PIPE: Platform Independent Petri Net Editor " + version+",auth:巩孟博";
+        name = "PIPE: Platform Independent Petri Net Editor " + version+",auth:巩孟博，弄类跟真的一样！";
     }
 
     /**

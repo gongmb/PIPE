@@ -6,6 +6,7 @@ import pipe.controllers.application.PipeApplicationController;
 import java.util.Arrays;
 
 /**
+ * 管理器，用于存储显示在工具栏上的所有动画动作
  * Manager to store all animate actions displayed on the tool bar
  */
 public final class AnimateActionManager implements ActionManager {
@@ -40,7 +41,7 @@ public final class AnimateActionManager implements ActionManager {
      * @param applicationController main PIPE application controller
      */
     public AnimateActionManager(PipeApplicationModel applicationModel, PipeApplicationController applicationController) {
-        toggleAnimationAction = new ToggleAnimateAction("Animation mode", "Toggle Animation Mode", "Ctrl A",
+        toggleAnimationAction = new ToggleAnimateAction("Animation mode动画模式", "Toggle Animation Mode", "Ctrl A",
                 applicationModel, applicationController);
         stepforwardAction = new StepForwardAction("Forward", "Step forward a firing", "6", applicationController);
         stepbackwardAction = new StepBackwardAction("Back", "Step backward a firing", "4", applicationController, stepforwardAction);

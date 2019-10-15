@@ -16,7 +16,9 @@ public class ToggleAnimateAction extends AnimateAction {
     private final PipeApplicationController applicationController;
 
     /**
+     * Noop动作用于切换动画
      * Noop action to be used for toggling in and out of animation
+     *删除动画模式下发生的任何虚假创建
      * Removes any spurious creates happening in animation mode
      */
     private final ActionListener noopAction;

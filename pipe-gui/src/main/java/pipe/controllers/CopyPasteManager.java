@@ -27,6 +27,7 @@ import java.util.List;
 
 
 /**
+ * 用于处理复制和粘贴功能的类
  * Class to handle copy and paste functionality
  */
 @SuppressWarnings("serial")
@@ -34,14 +35,16 @@ public class  CopyPasteManager extends javax.swing.JComponent
         implements java.awt.event.MouseListener, java.awt.event.MouseMotionListener, java.awt.event.KeyListener {
 
     /**
+     * 粘贴时显示的矩形颜色
      * Colour of rectangle displayed when pasting
      */
-    private static final Paint PASTE_COLOR = new Color(155, 155, 155, 100);
+    private static final Paint PASTE_COLOR = new Color(105, 105, 155, 80);
 
     /**
+     * 粘贴时显示的矩形轮廓颜色
      * Colour of rectangle outline displayed when pasting
      */
-    private static final Color PASTE_COLOR_OUTLINE = new Color(155, 0, 0, 0);
+    private static final Color PASTE_COLOR_OUTLINE = new Color(155, 90, 80, 90);
 
     /**
      * Rectangle displayed which marks the outline of the objects to paste

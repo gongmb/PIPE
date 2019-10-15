@@ -94,7 +94,8 @@ public class PipeApplicationController {
      */
     //TODO: THIS IS RATHER UGLY, too many params but better than what was here before
     public void registerTab(PetriNet net, PetriNetTab tab, Observer historyObserver, UndoableEditListener undoListener,
-                            PropertyChangeListener zoomListener) {
+                            PropertyChangeListener zoomListener)
+    {
         AnimationHistoryImpl animationHistory = new AnimationHistoryImpl();
         animationHistory.addObserver(historyObserver);
         GUIAnimator animator = new GUIAnimator(new PetriNetAnimator(net), animationHistory, this);
