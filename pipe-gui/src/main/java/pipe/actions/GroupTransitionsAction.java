@@ -5,6 +5,7 @@ import pipe.actions.gui.GuiAction;
 import java.awt.event.ActionEvent;
 
 /**
+ *对具有相同输入和输出的所有转换进行分组。 仅当这是有色Petri网时才做任何事情
  * @author Alex Charalambous, June 2010: Groups any transitions that have
  *         the same inputs and outputs. Only does anything if this is a
  *         coloured petri net

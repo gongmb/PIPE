@@ -22,9 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 在屏幕上以图形方式显示弧形路径的类。
  * Class that displays the path of an arc graphically on screen.
+ * 这是旧代码，因此需要整理一下
  * It's old code so needs tidying up at some point
  */
+//Shape类包含创建用户界面和绘制图形和图像的所有类。
+//BasicStroke 描述用钢笔绘制沿一个 Shape和装饰应用轮廓两端和 Shape路径段的加入使标志的形状。
 public class ArcPath implements Shape, Cloneable {
 
     private static final Stroke PROXIMITY_STROKE = new BasicStroke(GUIConstants.ARC_PATH_PROXIMITY_WIDTH);

@@ -32,8 +32,9 @@ public abstract class GuiAction extends AbstractAction {
 
 
     /**
-     *
+     *构造函数加载图像并设置工具提示消息。
      * Constructor loading the image and setting the tool tip mssage.
+     * 将操作的键盘快捷键设置为指定的快捷键
      * It sets the keyboard shortcut of the action to that specified
      *
      * @param name      image name
