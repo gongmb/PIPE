@@ -36,36 +36,43 @@ public class ArcPath implements Shape, Cloneable {
     private static final Stroke STROKE = new BasicStroke(GUIConstants.ARC_PATH_SELECTION_WIDTH);
 
     /**
+     *圆弧的中点，必要时用于在此处显示圆弧权重
      * The midpoint along the arc, used to display the arc weights here if necessary
      */
     public final Point2D.Double midPoint = new Point2D.Double();
 
     /**
+     * 圆弧路径上的点
      * Points along the arc path
      */
     private final List<ArcPathPoint> pathPoints = new ArrayList<>();
 
     /**
+     * 父视图点属于谁
      * Parent view who the points belong to
      */
     private final ArcView<? extends Connectable, ? extends Connectable> arcView;
 
     /**
+     *弧所属的Petri网控制器
      * Petri net controller for which the arc belongs to
      */
     private final PetriNetController petriNetController;
 
     /**
+     *主要的PIPE应用模型
      * Main PIPE application model
      */
     private final PipeApplicationModel applicationModel;
 
     /**
+     *路径的图形表示
      * Graphical representation of the path
      */
     private GeneralPath path = new GeneralPath();
 
     /**
+     * 当点锁处于打开状态时，将光标悬停在它们上将不会显示任何点。 它们也不会被拖动
      * When pointlock is on no points will be displayed when the cursor is hovered
      * over them. Nor will they be dragable
      */
@@ -76,6 +83,7 @@ public class ArcPath implements Shape, Cloneable {
     private Shape proximityShape = PROXIMITY_STROKE.createStrokedShape(this);
 
     /**
+     * 过渡的角度
      * Angle at which to meet a transition
      */
     private int transitionAngle;
@@ -96,6 +104,8 @@ public class ArcPath implements Shape, Cloneable {
     }
 
     /**
+     * 我们无法使用HashMap在O（1）时间内完成此操作，因为ArcPoints是可变对象，
+     * 这意味着它们可以在HashMap中的键更改的同时进行更改
      * Note: We cannot do this in O(1) time using a HashMap because ArcPoints are
      * mutable objects, meaning that they could change whilst keys in the HashMap
      *

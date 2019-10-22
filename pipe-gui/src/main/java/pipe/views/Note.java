@@ -12,32 +12,41 @@ import java.awt.geom.RectangularShape;
 
 
 /**
+ * 该抽象类是AnnotationNote类和Parameter类的基类。
  * This abstract class is the base class for AnnotationNote class and for
  * Parameter class
  */
 @SuppressWarnings("serial")
 public abstract class Note extends AbstractPetriNetViewComponent<Annotation> {
     /**
+     *
+     文字注释出现在屏幕上
      * Text note to appear on screen
      */
+    //JTextArea 多线区域显示文本
     protected final JTextArea noteText = new JTextArea();
 
     /**
+     *
+     笔记的矩形边框
      * Rectangular border for the note
      */
-    protected final RectangularShape noteRect = new Rectangle();
+    protected final RectangularShape noteRTrue if a border should be displayed when painting the componentect = new Rectangle();
 
     /**
+     * 如果在绘制组件时应显示边框，则为True
      * True if a border should be displayed when painting the component
      */
     protected boolean drawBorder = true;
 
     /**
+     * 初始x点
      * Initial x point
      */
     protected int originalX;
 
     /**
+     * 初始y点
      * Initial y point
      */
     protected int originalY;

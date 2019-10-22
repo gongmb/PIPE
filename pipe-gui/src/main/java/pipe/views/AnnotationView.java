@@ -21,23 +21,28 @@ import java.util.List;
 
 
 /**
+ * 注释视图
+ * 查看注释Petri网组件的表示形式
  * View representation of the annotation Petri net component
  */
 @SuppressWarnings("serial")
 public final class AnnotationView extends Note {
 
     /**
+     * 可以在注释上拖动以增加其大小的已定义点数
      * The number of points defined that can be dragged on the annotation to increase
      * its size
      */
     public static final int NO_DRAG_POINTS = 8;
 
     /**
+     * 注释上的拖动点位置
      * Drag point locations on the annotation
      */
     private final List<ResizePoint> dragPoints = new ArrayList<>(NO_DRAG_POINTS);
 
     /**
+     * 仿射变换用于绘图目的。 此变换将应用于矩形，并可用于旋转，拉伸等注释
      * Affine transform for drawing purposes. This transform is applied
      * to the rectange and can be used to rotate, stretch etc the annotation
      */
@@ -45,9 +50,13 @@ public final class AnnotationView extends Note {
 
     /**
      * Constructor
+     * 注释基础注释模型
      * @param annotation underlying annotation model
+     *控制器Petri网注释所属的Petri网的控制器
      * @param controller Petri net controller for the Petri net the annotation belongs to
+     *  此视图的父容器
      * @param parent parent container of this view
+     *批注将如何处理鼠标事件
      * @param handler how the annotation will handle mouse events
      */
     public AnnotationView(Annotation annotation, PetriNetController controller, Container parent, MouseInputAdapter handler) {
@@ -59,6 +68,7 @@ public final class AnnotationView extends Note {
     }
 
     /**
+     *将处理程序注册到此视图
      * Registers the handler to this view
      * @param handler how the annotation will handle mouse events
      */
@@ -70,8 +80,9 @@ public final class AnnotationView extends Note {
     }
 
     /**
+     * 更新此视图的（x，y）和宽度高度边界
      * Update the (x,y) and width height boundary of this view
-     *
+     *由于画布没有布局管理器而实现
      * Implemented because the canvas has no layout manager
      */
     @Override
@@ -134,6 +145,7 @@ public final class AnnotationView extends Note {
     }
 
     /**
+     * 为所有角和沿每个边缘的中途创建拖动点
      * Creates drag points for all the corners and half way along
      * each edge
      */
@@ -156,6 +168,7 @@ public final class AnnotationView extends Note {
     }
 
     /**
+     * 使用图形绘制注释及其文本
      * Paints the annotation and its text using the graphics
      * @param g graphics 
      */
