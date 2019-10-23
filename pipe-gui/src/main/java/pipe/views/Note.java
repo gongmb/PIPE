@@ -31,7 +31,7 @@ public abstract class Note extends AbstractPetriNetViewComponent<Annotation> {
      笔记的矩形边框
      * Rectangular border for the note
      */
-    protected final RectangularShape noteRTrue if a border should be displayed when painting the componentect = new Rectangle();
+    protected final RectangularShape noteRect = new Rectangle();
 
     /**
      * 如果在绘制组件时应显示边框，则为True

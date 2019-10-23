@@ -13,6 +13,7 @@ import java.awt.geom.AffineTransform;
 
 
 /**
+ * 将库所连接到变迁的抑制弧的视图
  * View of an inhibitor arc that connects places to transitions
  */
 public class InhibitorArcView extends ArcView<Place, Transition> {
@@ -36,6 +37,7 @@ public class InhibitorArcView extends ArcView<Place, Transition> {
 
 
     /**
+     * 将弧添加到容器后，抑制器视图将向其中添加弧路径点
      * When the arc is added to the container the inhibitor view will add the arc path points to it
      * @param container to add itself to
      */
@@ -45,6 +47,7 @@ public class InhibitorArcView extends ArcView<Place, Transition> {
     }
 
     /**
+     * 使用圆弧头绘制圆弧及其路径
      * Paints the arc and its path using the arcHead
      * @param g graphics 
      */
