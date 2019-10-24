@@ -13,12 +13,14 @@ import javax.swing.event.UndoableEditListener;
 import java.util.Arrays;
 
 /**
+ *容纳负责编辑令牌的动作
  * Houses the actions that are responsible for editing tokens
  */
 public class TokenActionManager implements ActionManager {
 
 
     /**
+     * 弹出以编辑令牌
      * Pop up for editing tokens
      */
     public final SpecifyTokenAction specifyTokenClasses;

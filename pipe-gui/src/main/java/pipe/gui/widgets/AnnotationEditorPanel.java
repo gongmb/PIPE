@@ -5,22 +5,26 @@ import pipe.controllers.AnnotationController;
 import javax.swing.*;
 
 /**
+ *用于更改注释文本的注释面板
  * Annotation panel used to change text of the annotation
  */
 @SuppressWarnings("serial")
 public class AnnotationEditorPanel extends javax.swing.JPanel {
 
     /**
+     * 注释控制器
      * Annotation controller
      */
     private final AnnotationController annotationController;
 
     /**
+     * 新文字区
      * New text area
      */
     private javax.swing.JTextArea textArea;
 
     /**
+     * 创建新表单参数面板
      * Creates new form ParameterPanel
      * @param annotationController controller for annotations 
      */
@@ -31,6 +35,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
     }
 
     /**
+     * 从构造函数内部调用此方法以初始化表单。
      * This method is called from within the constructor to
      * initialize the form.
      */
@@ -50,7 +55,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(239, 208));
         panel.setLayout(new java.awt.GridLayout(1, 0));
 
-        panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Annotation"));
+        panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Edit Annotation编辑注释"));
         textArea.setColumns(20);
         textArea.setRows(5);
         jScrollPane1.setViewportView(textArea);
@@ -64,7 +69,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
 
         buttonPanel.setLayout(new java.awt.GridBagLayout());
 
-        okButton.setText("OK");
+        okButton.setText("OK好嘞");
         okButton.setMaximumSize(new java.awt.Dimension(75, 25));
         okButton.setMinimumSize(new java.awt.Dimension(75, 25));
         okButton.setPreferredSize(new java.awt.Dimension(75, 25));
@@ -82,7 +87,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         buttonPanel.add(okButton, gridBagConstraints);
 
-        cancelButton.setText("Cancel");
+        cancelButton.setText("Cancel取消");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +109,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
     }
 
     /**
+     * 设置注释的文本
      * Sets the text of the annotation
      * @param evt text event 
      */
@@ -113,6 +119,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
     }
 
     /**
+     *退出注释编辑器
      * Exits the annotation editor
      */
     private void exit() {
@@ -120,6 +127,7 @@ public class AnnotationEditorPanel extends javax.swing.JPanel {
     }
 
     /**
+     * 取消注释编辑器，使文本保持不变
      * Cancels the annotation editor, leaving the text unchanged
      * @param evt cancel event 
      */
