@@ -21,6 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 修改弧属性的编辑器
  * Editor for modifying arc properties
  */
 @SuppressWarnings("serial")

@@ -29,9 +29,7 @@ public abstract class AbstractPetriNetViewComponent<T extends PetriNetComponent>
     protected static boolean ignoreSelection = false;
 
     /**
-     *
-     70/5000
-     Petri网组件所在的Petri网的控制器
+     *Petri网组件所在的Petri网的控制器
      * Controller for the Petri net that the Petri net component is housed in
      */
     protected final PetriNetController petriNetController;

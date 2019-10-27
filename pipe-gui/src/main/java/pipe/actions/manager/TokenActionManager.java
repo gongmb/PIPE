@@ -26,11 +26,13 @@ public class TokenActionManager implements ActionManager {
     public final SpecifyTokenAction specifyTokenClasses;
 
     /**
+     * 在库所中增加令牌的操作
      * Action to add a token to a place
      */
     public CreateAction tokenAction;
 
     /**
+     * 在库所中删除令牌的操作
      * Action to delete a token from a place
      */
     public CreateAction deleteTokenAction;

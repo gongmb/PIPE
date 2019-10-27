@@ -23,13 +23,19 @@ import java.beans.PropertyChangeListener;
 
 
 /**
+ * 此类以图形方式表示弧形路径上的每个点。
  * This class represents each point on the arc path graphically.
- * It's old code so the Bezier maths etc. needs to be addressed
+ * 这是旧代码，因此需要解决Bezier数学等问题
+ * It's old code so the Bezier(贝塞尔曲线(Bézier curve)，又称贝兹曲线或贝济埃曲线，是应用于二维图形应用程序的数学曲线。)
+ * maths etc. needs to be addressed
+ * 圆弧路径点
+ * arc path point
  */
 @SuppressWarnings("serial")
 public class ArcPathPoint extends AbstractPetriNetViewComponent<ArcPoint> {
 
     /**
+     * 布尔值，确定圆弧是直线还是曲线
      * Boolean value determining if the arc is straight or a curve
      */
     public static final boolean STRAIGHT = false;
@@ -37,6 +43,7 @@ public class ArcPathPoint extends AbstractPetriNetViewComponent<ArcPoint> {
     private static final int SIZE_OFFSET = 1;
 
     /**
+     * 点的大小
      * Size of the point
      */
     private static final int SIZE = 3;
